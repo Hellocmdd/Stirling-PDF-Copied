@@ -1503,8 +1503,9 @@ editSelected = "Edit Annotation"
 editSquare = "Edit Square"
 editStampHint = "To change the image, delete this stamp and add a new one."
 editSwitchToSelect = "Switch to Select & Edit to edit this annotation."
-editText = "Edit Text Box"
+editText = "Edit"
 editTextMarkup = "Edit Text Markup"
+annotationStyle = "Annotation style"
 ellipse = "Ellipse"
 exit = "Exit annotation mode"
 fillColor = "Fill Colour"
@@ -1515,13 +1516,19 @@ highlight = "Highlight"
 imagePreview = "Preview"
 inkHighlighter = "Freehand Highlighter"
 line = "Line"
+lineArrow = "Arrow"
 noBackground = "No background"
 note = "Note"
+comment = "Comment"
+comments = "Comments"
+insertText = "Insert Text"
+replaceText = "Replace Text"
 noteIcon = "Note Icon"
 notesStamps = "Notes & Stamps"
 opacity = "Opacity"
 pen = "Pen"
 polygon = "Polygon"
+polyline = "Polyline"
 properties = "Properties"
 rectangle = "Rectangle"
 redo = "Redo"
@@ -2675,6 +2682,14 @@ integration = "Integration Configuration"
 security = "Security Configuration"
 system = "System Configuration"
 
+[connectionMode.status]
+localOffline = "Offline mode running"
+localOnline = "Offline mode running"
+saas = "Connected to Stirling Cloud"
+selfhostedChecking = "Connected to self-hosted server (checking...)"
+selfhostedOffline = "Self-hosted server unreachable"
+selfhostedOnline = "Connected to self-hosted server"
+
 [convert]
 autoRotate = "Auto Rotate"
 autoRotateDescription = "Automatically rotate images to better fit the PDF page"
@@ -3758,6 +3773,11 @@ desc = "Adds signature to PDF by drawing, text or image"
 tags = "signature,autograph,e-sign,electronic signature,digital signature,sign document,approval,signoff,authorize,endorse,ink signature,handwriting"
 title = "Sign"
 
+[home.timestampPdf]
+desc = "Add an RFC 3161 document timestamp to prove when your PDF existed"
+tags = "timestamp,RFC 3161,TSA,time stamp authority,document timestamp,proof of existence,timestamp token,trusted timestamp,sign timestamp,notarise"
+title = "Timestamp PDF"
+
 [home.split]
 desc = "Split PDFs into multiple documents"
 tags = "divide,separate,break,split,extract pages,separate pages,divide document,break apart,separate files,unbind,split by page,divide by chapter"
@@ -4463,14 +4483,20 @@ rotateLeft = "Rotate Left"
 rotateRight = "Rotate Right"
 toggleSidebar = "Toggle Sidebar"
 toggleBookmarks = "Toggle Bookmarks"
+toggleComments = "Comments"
 print = "Print PDF"
 ruler = "Ruler / Measure"
+readAloud = "Read Aloud"
+readAloudSpeed = "Speed"
+readAloudLanguage = "Language"
+selectLanguage = "Select language"
 draw = "Draw"
 redact = "Redact"
 exitRedaction = "Exit Redaction Mode"
 save = "Save"
 downloadAll = "Download All"
 saveAll = "Save All"
+saveAs = "Save As"
 
 [textAlign]
 left = "Left"
@@ -4485,21 +4511,132 @@ title = "Extract Pages"
 
 [pageLayout]
 addBorder = "Add Borders"
+borderWidth = "Border Thickness"
+bottom = "Bottom Margin"
+cols = "Columns"
 header = "Multi Page Layout"
+innerMargin = "Inner Margin"
+left = "Left Margin"
 pagesPerSheet = "Pages per sheet:"
+right = "Right Margin"
+rows = "Rows"
 submit = "Submit"
 tags = "merge,composite,single-view,organize"
 title = "Multi Page Layout"
+top = "Top Margin"
+
+[pageLayout.mode]
+default = "Default"
+custom = "Custom"
+label = "Mode:"
+
+[pageLayout.arrangement]
+byColumns = "By Columns"
+byRows = "By Rows"
+label = "Page arrangement:"
 
 [pageLayout.desc]
 16 = "Place 16 pages on a single sheet (4 × 4 grid)."
 2 = "Place 2 pages side-by-side on a single sheet."
-3 = "Place 3 pages on a single sheet in a single row."
 4 = "Place 4 pages on a single sheet (2 × 2 grid)."
 9 = "Place 9 pages on a single sheet (3 × 3 grid)."
 
 [pageLayout.error]
 failed = "An error occurred while creating the multi-page layout."
+outerVerticalMarginsTooLarge = "Top/Bottom margins are too large for this page size."
+outerHorizontalMarginsTooLarge = "Left/Right margins are too large for this page size."
+innerMarginTooLarge = "Inner margin is too large for the selected layout."
+
+[pageLayout.orientation]
+landscape = "Landscape"
+portrait = "Portrait"
+label = "Orientation:"
+
+[pageLayout.readingDirection]
+ltr = "Left to Right"
+rtl = "Right to Left"
+label = "Reading Direction:"
+
+[pageLayout.tooltip.header]
+title = "Page Layout Guide"
+
+[pageLayout.tooltip.overview]
+title = "What is Page Layout?"
+text = "Fit multiple pages onto a single sheet for handouts or to save paper."
+
+[pageLayout.tooltip.mode]
+title = "Mode"
+text = "Choose how the grid is configured:"
+bullet1 = "Default: Pick a preset and the grid is calculated automatically."
+bullet2 = "Custom: Set rows and columns manually."
+
+[pageLayout.tooltip.pagesPerSheet]
+title = "Pages per Sheet (Default Mode)"
+text = "Choose how many pages per sheet (e.g. 4 → 2×2, 9 → 3×3)."
+
+[pageLayout.tooltip.rowsCols]
+title = "Rows & Columns (Custom Mode)"
+text = "Set exact grid dimensions. Total pages per sheet = rows × columns."
+
+[pageLayout.tooltip.orientation]
+title = "Orientation"
+text = "Sets the output sheet orientation:"
+bullet1 = "Portrait: Taller than wide."
+bullet2 = "Landscape: Wider than tall."
+
+[pageLayout.tooltip.arrangement]
+title = "Page Arrangement"
+text = "Controls the order pages fill the grid:"
+bullet1 = "By Rows: Fill row by row (left-to-right or right-to-left)."
+bullet2 = "By Columns: Fill top-to-bottom, column by column."
+
+[pageLayout.tooltip.readingDirection]
+title = "Reading Direction"
+text = "Controls the horizontal order of pages:"
+bullet1 = "LTR: Left to right."
+bullet2 = "RTL: Right to left."
+
+[pageLayout.tooltip.addBorder]
+title = "Add Borders"
+text = "Draws border lines around each page cell for cutting guides or visual separation."
+
+[pageLayout.marginsBorders.tooltip.header]
+title = "Margins and Borders"
+
+[pageLayout.marginsBorders.tooltip.margins]
+title = "Margins"
+text = "Use top, bottom, left, and right margins to control spacing around the full sheet output."
+
+[pageLayout.marginsBorders.tooltip.innerMargin]
+title = "Inner Margin"
+text = "Inner margin adds spacing between cells in the page grid to improve separation and readability."
+
+[pageLayout.marginsBorders.tooltip.borders]
+title = "Add Borders"
+text = "Enable borders to draw lines around each placed page. This can help visual separation or trimming."
+
+[pageLayout.marginsBorders.tooltip.borderWidth]
+title = "Border Thickness"
+text = "Border thickness is only applied when borders are enabled. Higher values produce thicker lines."
+
+[pageLayout.advanced.tooltip.header]
+title = "Advanced Layout Options"
+
+[pageLayout.advanced.tooltip.orientation]
+title = "Orientation"
+text = "Choose the final sheet direction. Portrait works better for tall content, while landscape fits wider layouts."
+
+[pageLayout.advanced.tooltip.arrangement]
+title = "Page Arrangement"
+text = "Controls whether pages fill the grid row-by-row or column-by-column."
+bullet1 = "By Rows: Fill each row first."
+bullet2 = "By Columns: Fill each column first."
+
+[pageLayout.advanced.tooltip.readingDirection]
+title = "Reading Direction"
+text = "Sets horizontal ordering in the grid, useful for left-to-right and right-to-left document conventions."
+bullet1 = "LTR: Left to right order."
+bullet2 = "RTL: Right to left order."
 
 [pageRemover]
 header = "PDF Page remover"
@@ -5697,6 +5834,32 @@ text = "Rotate your PDF pages clockwise or anticlockwise in 90-degree increments
 [rotate.tooltip.header]
 title = "Rotate Settings Overview"
 
+[timestampPdf]
+completed = "PDF timestamped successfully"
+desc = "Add an RFC 3161 document timestamp to your PDF using a trusted Time Stamp Authority (TSA) server."
+filenamePrefix = "timestamped"
+results = "Timestamp Results"
+submit = "Apply Timestamp"
+title = "Timestamp PDF"
+
+[timestampPdf.error]
+failed = "An error occurred while timestamping the PDF."
+generic = "Timestamping failed"
+
+[timestampPdf.files]
+placeholder = "Select a PDF file in the main view to get started"
+
+[timestampPdf.options]
+note = "Only a SHA-256 hash of your document is sent to the TSA server; the PDF file itself is never sent to the TSA server."
+title = "Timestamp Server (TSA)"
+
+[timestampPdf.options.tsaUrl]
+desc = "Pick a trusted Time Stamp Authority"
+label = "Select a TSA server"
+
+[timestampPdf.steps]
+settings = "Settings"
+
 [sanitize]
 completed = "Sanitisation completed successfully"
 desc = "Remove potentially harmful elements from PDF files."
@@ -5844,12 +6007,15 @@ systemSettings = "System Settings"
 title = "Configuration"
 
 [settings.connection]
+localDescription = "You are using the local backend without an account. Some tools requiring cloud processing or a self-hosted server are unavailable."
 logout = "Log Out"
 server = "Server"
+signIn = "Sign In"
 title = "Connection Mode"
 user = "Logged in as"
 
 [settings.connection.mode]
+local = "Local Only"
 saas = "Stirling Cloud"
 selfhosted = "Self-Hosted"
 
@@ -6047,6 +6213,18 @@ title = "Workspace"
 [settings.team]
 title = "Team"
 
+[localMode]
+toolUnavailable = "This tool requires an account. Sign in to Stirling Cloud or connect to a self-hosted server to use it."
+
+[localMode.banner]
+message = "Sign in to unlock all tools."
+signIn = "Sign In"
+title = "Running locally"
+
+[localMode.toolPicker]
+message = "Sign in to unlock all tools."
+signIn = "Sign In"
+
 [setup]
 description = "Get started by choosing how you want to use Stirling PDF"
 welcome = "Welcome to Stirling PDF"
@@ -6054,6 +6232,7 @@ welcome = "Welcome to Stirling PDF"
 [setup.login]
 connectingTo = "Connecting to:"
 hideInstructions = "Hide instructions"
+skipSignIn = "Continue without signing in"
 instructions = "To enable login on your Stirling PDF server:"
 instructionsEnvVar = "Set the environment variable:"
 instructionsOrYml = "Or in settings.yml:"
@@ -6101,7 +6280,14 @@ title = "Sign in to Stirling"
 [setup.selfhosted]
 link = "or connect to a self-hosted account"
 subtitle = "Enter your server credentials"
+switchToLocal = "Use local tools instead"
 title = "Sign in to Server"
+
+[setup.selfhosted.unreachable]
+continueOffline = "Use local tools instead"
+message = "Could not reach {{url}}. Check that the server is running and accessible."
+retry = "Retry"
+title = "Cannot connect to server"
 
 [setup.server]
 subtitle = "Enter your self-hosted server URL"
@@ -6110,7 +6296,8 @@ title = "Connect to Server"
 useLast = "Last used server: {{serverUrl}}"
 
 [setup.server.error]
-configFetch = "Failed to fetch server configuration. Please check the URL and try again."
+configFetch = "Failed to fetch server configuration (status {{status}})"
+configFetchError = "Failed to fetch server configuration: {{error}}"
 emptyUrl = "Please enter a server URL"
 invalidUrl = "Invalid URL format. Please enter a valid URL like https://your-server.com"
 testFailed = "Connection test failed"
@@ -6682,6 +6869,12 @@ removal = "Removal"
 signing = "Signing"
 verification = "Verification"
 
+[tool]
+endpointUnavailable = "This tool is unavailable on your server."
+endpointUnavailableClickable = "Not available in this mode. Click to sign in."
+invalidParams = "Fill in the required settings."
+noFiles = "Add a file to get started."
+
 [tools]
 noSearchResults = "No tools found"
 noTools = "No tools available"
@@ -6908,6 +7101,31 @@ noDocument = "Open a PDF to view its attachments."
 loading = "Loading attachments..."
 empty = "No attachments in this document"
 noMatch = "No attachments match your search"
+
+[viewer.comments]
+title = "Comments"
+hint = "Place comments with the Comment, Insert Text, or Replace Text tools. They will appear here by page."
+placeholder = "Type your comment..."
+pageLabel = "Page {{page}}"
+oneComment = "1 comment"
+nComments = "{{count}} comments"
+addCommentPlaceholder = "Add comment..."
+addLink = "Add link"
+goToLink = "Go to link"
+addComment = "Add comment"
+viewComment = "View comment"
+addReplyPlaceholder = "Add reply..."
+saveReply = "Save reply"
+send = "Send"
+moreActions = "More actions"
+typeComment = "Comment"
+typeInsertText = "Insert Text"
+typeReplaceText = "Replace Text"
+locateAnnotation = "Locate in document"
+deleteTitle = "Remove annotation from comments?"
+deleteDescription = "This annotation has a comment attached. You can remove just the comment from the sidebar while keeping the annotation, or delete everything."
+removeCommentOnly = "Remove comment only"
+deleteAnnotationAndComment = "Delete annotation & comment"
 
 [viewer.formBar]
 title = "Form Fields"
